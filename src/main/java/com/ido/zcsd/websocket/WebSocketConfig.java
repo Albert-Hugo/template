@@ -9,9 +9,9 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
-@Configuration
-@EnableWebMvc
-@EnableWebSocket
+//@Configuration
+//@EnableWebMvc
+//@EnableWebSocket
 public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer{
     @Autowired
     ChatWebSocketHandler handler;

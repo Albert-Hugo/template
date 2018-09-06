@@ -1,9 +1,13 @@
 package com.ido.zcsd.controller;
 
+import com.ido.zcsd.controller.request.GetPostReq;
+import com.rainful.domain.PageQuery;
 import com.rainful.domain.ResponseDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
+
+import java.awt.print.Pageable;
 
 /**
  * @author ido
@@ -13,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
-    @GetMapping("{userId}/posts")
-    public ResponseDTO getMyPost(){
+    @ApiOperation(value = "根据id查询学生的信息",notes = "查询数据库中某个学生的信息")
+    @PostMapping("/posts")
+    public ResponseDTO getMyPost(@RequestBody GetPostReq req){
+
         return ResponseDTO.success(null,"list my post");
     }
 

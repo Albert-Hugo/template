@@ -1,5 +1,6 @@
 package com.ido.zcsd.config;
 
+import com.ido.zcsd.exception.CustomException;
 import com.rainful.domain.ResponseDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,15 @@ public class ControllerExceptionHandler {
         return ResponseDTO.fail(null,ex.getMessage());
     }
 
+
+    @ExceptionHandler(CustomException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseDTO handlerCustompException(CustomException ex) {
+        ResponseDTO responseDTO = ResponseDTO.fail(null,ex.getMessage());
+        responseDTO.setCode(ex.getCode());
+        return responseDTO;
+    }
 
 
 
